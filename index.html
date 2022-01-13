@@ -139,7 +139,7 @@
     </nav>
 
     <div id="loginModal" class="modal fade" role="dialog" aria-label="Login">
-      <div class="modal-dialog modal-lg" role="dialog" aria-label="Login">
+      <div class="modal-dialog modal-lg" role="document" aria-label="Login">
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
@@ -203,7 +203,7 @@
     </div>
 
     <div id="reserveModal" class="modal fade" role="dialog" aria-label="Login">
-      <div class="modal-dialog modal-lg" role="dialog" aria-label="Login">
+      <div class="modal-dialog modal-lg" role="document" aria-label="Login">
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
@@ -391,7 +391,7 @@
       <div class="row row-content">
         <div class="col">
           <div id="mycarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
+            <div class="carousel-inner" role="document">
               <div class="carousel-item active">
                 <img
                   src="./img/uthappizza.png"
@@ -439,7 +439,9 @@
                   alt="Alberto"
                   class="d-block img-fluid"
                 />
-                <div class="carousel-caption d-none d-md-block">
+                <div
+                  class="carousel-caption d-none d-md-block d-flex align-items-center"
+                >
                   <h2>Alberto Somayya</h2>
                   <h4>Executive Chef</h4>
                   <p class="d-none d-sm-block">
@@ -476,6 +478,14 @@
               aria-label="Next"
               ><span class="carousel-control-next-icon"></span
             ></a>
+
+            <button
+              id="carouselButton"
+              class="btn btn-sm btn-danger"
+              aria-label="Pause / Play"
+            >
+              <span class="fa fa-pause"></span>
+            </button>
           </div>
         </div>
       </div>
@@ -554,115 +564,6 @@
                 world, he specializes in creating mouthwatering Indo-Italian
                 fusion experiences.
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-content d-none">
-        <div class="col-12 col-sm-8 offset-sm-2">
-          <div class="card">
-            <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
-            <div class="card-body">
-              <form id="reserveForm">
-                <div class="form-group row">
-                  <label for="guests" class="col-12 col-md-4 col-form-label"
-                    >Number of Guests</label
-                  >
-                  <div class="col-12 col-md-8">
-                    <div class="col-form-label form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="guests"
-                        id="guest1"
-                        value="1"
-                      />
-                      <label class="form-check-label" for="guest1">1</label>
-                    </div>
-                    <div class="col-form-label form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="guests"
-                        id="guest2"
-                        value="2"
-                      />
-                      <label class="form-check-label" for="guest2">2</label>
-                    </div>
-                    <div class="col-form-label form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="guests"
-                        id="guest3"
-                        value="3"
-                      />
-                      <label class="form-check-label" for="guest3">3</label>
-                    </div>
-                    <div class="col-form-label form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="guests"
-                        id="guest4"
-                        value="4"
-                      />
-                      <label class="form-check-label" for="guest4">4</label>
-                    </div>
-                    <div class="col-form-label form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="guests"
-                        id="guest5"
-                        value="5"
-                      />
-                      <label class="form-check-label" for="guest5">5</label>
-                    </div>
-                    <div class="col-form-label form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="guests"
-                        id="guest6"
-                        value="6"
-                      />
-                      <label class="form-check-label" for="guest6">6</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="date" class="col-12 col-md-4 col-form-label"
-                    >Date and Time</label
-                  >
-                  <div class="col-12 col-md-4">
-                    <input
-                      type="date"
-                      class="form-control"
-                      id="date"
-                      name="date"
-                      placeholder="Date"
-                    />
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <input
-                      type="time"
-                      class="form-control"
-                      id="time"
-                      name="time"
-                      placeholder="Time"
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-12 col-md-8 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                      Reserve
-                    </button>
-                  </div>
-                </div>
-              </form>
             </div>
           </div>
         </div>
@@ -754,7 +655,22 @@
     ></script>
     <script type="text/javascript">
       $(function () {
-        //$('[data-toggle="tooltip"]').tooltip();
+        $("#mycarousel").carousel({ interval: 2000 });
+        $("#carouselButton").on("click", (e) => {
+          e.preventDefault();
+          const $btn = $("#carouselButton");
+          const pause = $btn.hasClass("btn-danger");
+          if (pause) {
+            $btn.removeClass("btn-danger").addClass("btn-success");
+            $btn.children("span").removeClass("fa-pause").addClass("fa-play");
+            $("#mycarousel").carousel("pause");
+          } else {
+            $btn.removeClass("btn-success").addClass("btn-danger");
+            $btn.children("span").removeClass("fa-play").addClass("fa-pause");
+            $("#mycarousel").carousel("cycle");
+          }
+          return false;
+        });
       });
     </script>
   </body>
