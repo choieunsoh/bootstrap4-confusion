@@ -35,14 +35,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link
-      rel="preload"
-      as="script"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js"
-      integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+
     <link
       rel="preload"
       as="script"
@@ -54,11 +47,12 @@
     <link
       rel="preload"
       as="script"
-      href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.2/umd/popper.min.js"
-      integrity="sha512-aDciVjp+txtxTJWsp8aRwttA0vR2sJMk/73ZT7ExuEHv7I5E6iyyobpFOlEFkq59mWW8ToYGuVZFnwhwIUisKA=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"
+      integrity="sha512-mULnawDVcCnsk9a4aG1QLZZ6rcce/jSzEGqUkeOLy0b6q0+T6syHrxlsAGH7ZVoqC93Pd0lBqd6WguPWih7VHA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <link rel="preload" as="image/png" href="./img/logo.png" />
     <link rel="preload" as="image/png" href="./img/uthappizza.png" />
     <link rel="preload" as="image/png" href="./img/alberto.png" />
@@ -158,7 +152,14 @@
             />
           </div>
           <div class="col-12 col-sm-3 d-flex align-items-center pt-2">
-            <a href="#reserveForm" class="btn btn-block btn-warning">
+            <a
+              href="#reserveForm"
+              class="btn btn-block btn-warning nav-link"
+              data-toggle="tooltip"
+              data-html="true"
+              title="Or Call us at<br/><strong>+852 12345678</strong>"
+              data-placement="bottom"
+            >
               Reserve Table
             </a>
           </div>
@@ -434,16 +435,16 @@
       referrerpolicy="no-referrer"
     ></script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.2/umd/popper.min.js"
-      integrity="sha512-aDciVjp+txtxTJWsp8aRwttA0vR2sJMk/73ZT7ExuEHv7I5E6iyyobpFOlEFkq59mWW8ToYGuVZFnwhwIUisKA=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"
+      integrity="sha512-mULnawDVcCnsk9a4aG1QLZZ6rcce/jSzEGqUkeOLy0b6q0+T6syHrxlsAGH7ZVoqC93Pd0lBqd6WguPWih7VHA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js"
-      integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script type="text/javascript">
+      $(function () {
+        //$('[data-toggle="tooltip"]').tooltip();
+        $("body").tooltip({ selector: "[data-toggle=tooltip]" });
+      });
+    </script>
   </body>
 </html>
