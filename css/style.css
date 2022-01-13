@@ -45,3 +45,7 @@ a[data-toggle="collapse"] {
   text-decoration: none;
   color: #333;
 }
+
+.navbar-text a {
+  cursor: pointer;
+}
