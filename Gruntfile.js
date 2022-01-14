@@ -49,6 +49,17 @@ module.exports = (grunt) => {
           },
         ],
       },
+      js: {
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: "./js",
+            src: ["*.js"],
+            dest: "dist/js",
+          },
+        ],
+      },
     },
     clean: {
       build: {
